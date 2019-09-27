@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/dice.css"> -->
   <title>Craps in Javascript</title>
 </head>
 
@@ -36,45 +37,45 @@
               <div class="row rowcenter">
               <div class="col-12" id="bet-size">Bet Size</div>
               <div class="col-6">
-            <button class="btn btn-success" id="plus1">+$1</button>
+            <button class="btn btn-success bet" id="plus1" value="1">+$1</button>
               </div>
               <div class="col-6">
-            <button class="btn btn-danger" id="minus1">-$1</button>
+            <button class="btn btn-danger bet" id="minus1" value="-1">-$1</button>
               </div>
 
               <div class="col-6">
-            <button class="btn btn-success" id="plus5">+$5</button>
+            <button class="btn btn-success bet" id="plus5" value="5">+$5</button>
               </div>
               <div class="col-6">
-            <button class="btn btn-danger" id="minus5">-$5</button>
+            <button class="btn btn-danger bet" id="minus5" value="-5">-$5</button>
               </div>
 
-
-                            <div class="col-6">
-            <button class="btn btn-success" id="plus10">+$10</button>
-              </div>
-              <div class="col-6">
-            <button class="btn btn-danger" id="minus10">-$10</button>
-              </div>
 
                             <div class="col-6">
-            <button class="btn btn-success" id="plus50">+$50</button>
+            <button class="btn btn-success bet" id="plus10" value="10">+$10</button>
               </div>
               <div class="col-6">
-            <button class="btn btn-danger" id="minus50">-$50</button>
+            <button class="btn btn-danger bet" id="minus10" value="-10">-$10</button>
+              </div>
+
+                            <div class="col-6">
+            <button class="btn btn-success bet" id="plus50" value="50">+$50</button>
+              </div>
+              <div class="col-6">
+            <button class="btn btn-danger bet" id="minus50" value="-50">-$50</button>
               </div>
                             <div class="col-6">
-            <button class="btn btn-success" id="plus100">+$100</button>
+            <button class="btn btn-success bet" id="plus100" value="100">+$100</button>
               </div>
               <div class="col-6">
-            <button class="btn btn-danger" id="minus100">-$100</button>
+            <button class="btn btn-danger bet" id="minus100" value="-100">-$100</button>
               </div>
 
                                           <div class="col-6">
-            <button class="btn btn-success" id="yolo">YOLO!</button>
+            <button class="btn btn-success bet" id="yolo" value="yolo">YOLO!</button>
               </div>
               <div class="col-6">
-            <button class="btn btn-danger" id="clear">Clear</button>
+            <button class="btn btn-danger bet" id="clear" value="clear">Clear</button>
               </div>
 
               </div>
@@ -115,11 +116,18 @@
             <div class="col-12" id="dice-area">
               <h3>Current Roll</h3>
               <div class="show-dice"></div>
-              
+            
+<!-- insert of dice -->
+
+<img src="img/dice1.png"><img src="img/dice3.png">
+
+
+
+<!-- end dice show -->
               <h2>4</h2>
             </div>
             <div class="col" id="roll-area"> 
-        <button type="button" class="btn btn-primary btn-lg" id="roll">Roll</button>
+        <button type="button" class="btn btn-primary btn-lg" id="roll-button">Roll Dice</button>
             </div>
         </div>
 <!-- end right column -->
@@ -129,5 +137,7 @@
         </div>
 <!-- end container -->
   </div>
+  <script src="js/script.js"></script>
+<!--     <script src="js/dice.js"></script> -->
 </body>
 </html>

@@ -40,13 +40,21 @@ var enableButtons = function () {
 var disableButtons = function () {}; 
 
 
-var betClicked = function () {
-	console.log ('bet clicked')
+var betClicked = function (event) {
+	var betValue = event.target.value;
+	betValue = Number(betValue);
+		playerData.amountBet = playerData.amountBet + betValue;
+	// player bet can't go below 0
+	if (playerData.amountBet < 0 ) {
+			playerData.amountBet = 0; 
+		}
+
 }
 
 
-var rollClicked = function () {
+var rollClicked = function (event) {
 	console.log ('roll clicked')
+	var location = event.target.id;
 }
 
 var gameStart = function (playerName) {
@@ -84,11 +92,11 @@ document.getElementById('player-info').innerHTML = "<h3>Player Info</h3>";
 
 //hide areas on load
 var hideLoadAreas = function () {
-// document.getElementById("dice-area").style.visibility = "hidden";
-document.getElementById("display-come-out-number").style.visibility = "hidden";
-// document.getElementById('win-lose').innerHTML = "";
-// document.getElementById("win-lose").style.visibility = "collapse";
-document.getElementById("win-lose").style.display = "none";
+	// document.getElementById("dice-area").style.visibility = "hidden";
+	document.getElementById("display-come-out-number").style.visibility = "hidden";
+	// document.getElementById('win-lose').innerHTML = "";
+	// document.getElementById("win-lose").style.visibility = "collapse";
+	document.getElementById("win-lose").style.display = "none";
 
 };
 
@@ -99,14 +107,13 @@ var nameFunction = function (){
 
 		var input = document.querySelector('#name-input'); 
 	var inputValue = input.value;
-if (inputValue.replace(/\s+/g, '').length == 0) {
-getPlayerName();
-} else {
-	playerData.name = inputValue;
-	gameInitialize();
-	gameStart(inputValue);
-
-}
+	if (inputValue.replace(/\s+/g, '').length == 0) {
+		getPlayerName();
+		} else {
+		playerData.name = inputValue;
+		gameInitialize();
+		gameStart(inputValue);
+		}
 }
 
 var getName = function () {
@@ -115,13 +122,13 @@ var getName = function () {
 	// document.getElementById("info-section").style.visibility = "visible";
 
 	// build the imput and submit button...
-	    var infoSection = document.getElementById('info-section');
-	    var nameInput = document.createElement('input');
-		nameInput.setAttribute('placeholder', "What's your name?");
-		nameInput.setAttribute('class', "form-control name-input");
-		nameInput.setAttribute('id', "name-input");
-		infoSection.appendChild(nameInput);
-		document.querySelector('#name-input').addEventListener('change', nameFunction); 
+    var infoSection = document.getElementById('info-section');
+    var nameInput = document.createElement('input');
+	nameInput.setAttribute('placeholder', "What's your name?");
+	nameInput.setAttribute('class', "form-control name-input");
+	nameInput.setAttribute('id', "name-input");
+	infoSection.appendChild(nameInput);
+	document.querySelector('#name-input').addEventListener('change', nameFunction); 
 
 
 }
