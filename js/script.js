@@ -12,16 +12,43 @@ var playerData = {
 	bankroll: 1000,
 	wins: 0,
 	losses: 0,
-	gamesPlayed: 0 
+	gamesPlayed: 0,
+	amountBet:0
 };
 
+
+var gameInitialize = function () {
+	// clear the input area
+	document.getElementById("name-input").style.display = "none";
+	// clear the bets
+	document.getElementById("current-bet").innerText = "$"+ playerData.amountBet;
+	enableButtons()
+} 
+
+
+var enableButtons = function () {
+	var plus1 = document.querySelector('#plus1');
+	plus1.addEventListener('click', betClicked );
+};
+
+
+var disableButtons = function () {}; 
+
+
+var betClicked = function () {
+	console.log ('bet clicked')
+}
+
 var gameStart = function (playerName) {
-	playerData.name = playerName;
 showPlayerInfo();
+// get a bet
+
+
+
 }
 
 var showPlayerInfo = function () {
-document.getElementById('player-info').innerHTML = "";
+document.getElementById('player-info').innerHTML = "<h3>Player Info</h3>";
 
 	    var ulInput = document.createElement('ul');
 	    var li = document.createElement("li");
@@ -42,18 +69,18 @@ document.getElementById('player-info').innerHTML = "";
 
 		var thePlayer = document.getElementById("player-info"); 
 		thePlayer.appendChild(ulInput); 
-}
+};
 
 
 //hide areas on load
 var hideLoadAreas = function () {
-document.getElementById("dice-area").style.visibility = "hidden";
+// document.getElementById("dice-area").style.visibility = "hidden";
 document.getElementById("display-come-out-number").style.visibility = "hidden";
 // document.getElementById('win-lose').innerHTML = "";
-document.getElementById("win-lose").style.visibility = "hidden";
+// document.getElementById("win-lose").style.visibility = "collapse";
+document.getElementById("win-lose").style.display = "none";
 
 };
-
 
 
 
@@ -65,7 +92,9 @@ var nameFunction = function (){
 if (inputValue.replace(/\s+/g, '').length == 0) {
 getPlayerName();
 } else {
-	gameStart(inputValue)
+	playerData.name = inputValue;
+	gameInitialize();
+	gameStart(inputValue);
 
 }
 }
