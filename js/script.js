@@ -32,6 +32,8 @@ var enableButtons = function () {
 	for (var i = 0; i <  allBetButtons.length; i++) {
 		allBetButtons[i].addEventListener('click', betClicked );
 	}
+	var rollButton = document.querySelector('#roll-button');
+	rollButton.addEventListener('click', rollClicked );
 };
 
 
@@ -40,6 +42,11 @@ var disableButtons = function () {};
 
 var betClicked = function () {
 	console.log ('bet clicked')
+}
+
+
+var rollClicked = function () {
+	console.log ('roll clicked')
 }
 
 var gameStart = function (playerName) {
