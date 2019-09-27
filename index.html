@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Craps in Javascript</title>
+</head>
+
+<body>
+  <div class="container text-center">
+
+<!-- header -->
+   <div class="row">
+      <div class="col-12"><h1>Craps in Javascript</h1>
+      <h2>Let's Roll!</h2></div>
+    </div>
+    <!-- Main Play Area 3 Columns-->
+    <div class="row rowcenter">
+      <div class="col-12 col-sm-2">
+        <!-- left player Info and Bet Size -->
+        <div class="row rowcenter">
+          <div class="col-12" id="player-info">Player Info
+          <ul>
+            <li>Bank: $1000</li>
+            <li>Wins: 0 </li>
+            <li>Losses: 0</li>
+            <li>Games Played: 0</li>
+          </ul>
+
+          </div>
+          <div class="col-12" id="bet-size">
+              <div class="row rowcenter">
+              <div class="col-12" id="bet-size">Bet Size</div>
+              <div class="col-6">
+            <button class="btn btn-success" id="plus1">+$1</button>
+              </div>
+              <div class="col-6">
+            <button class="btn btn-danger" id="minus1">-$1</button>
+              </div>
+
+              <div class="col-6">
+            <button class="btn btn-success" id="plus5">+$5</button>
+              </div>
+              <div class="col-6">
+            <button class="btn btn-danger" id="minus5">-$5</button>
+              </div>
+
+
+                            <div class="col-6">
+            <button class="btn btn-success" id="plus10">+$10</button>
+              </div>
+              <div class="col-6">
+            <button class="btn btn-danger" id="minus10">-$10</button>
+              </div>
+
+                            <div class="col-6">
+            <button class="btn btn-success" id="plus50">+$50</button>
+              </div>
+              <div class="col-6">
+            <button class="btn btn-danger" id="minus50">-$50</button>
+              </div>
+                            <div class="col-6">
+            <button class="btn btn-success" id="plus100">+$100</button>
+              </div>
+              <div class="col-6">
+            <button class="btn btn-danger" id="minus100">-$100</button>
+              </div>
+
+                                          <div class="col-6">
+            <button class="btn btn-success" id="yolo">YOLO!</button>
+              </div>
+              <div class="col-6">
+            <button class="btn btn-danger" id="clear">Clear</button>
+              </div>
+
+              </div>
+              <!-- end bet size area -->
+          </div>
+          <!-- end internal left column area -->
+        </div>
+<!-- end left columnn -->
+      </div>
+
+      <!-- begin middle column -->
+      <div class="col-12 col-sm-8">Column 2
+
+<!-- end middle column -->
+      </div>
+
+      <!-- begin right column -->
+      <div class="col-12 col-sm-2">Column 3
+<!-- end right column -->
+      </div>
+        
+<!-- end main play area -->
+        </div>
+<!-- end container -->
+  </div>
+</body>
+</html>
