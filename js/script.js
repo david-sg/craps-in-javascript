@@ -16,6 +16,7 @@ var playerData = {
 	amountBet:0
 };
 var diceSum=null;
+var diceCounter = 0;
 
 var gameInitialize = function () {
 	// clear the input area
@@ -26,7 +27,7 @@ var gameInitialize = function () {
 } 
 
 var diceTimer =	function () {
-	
+	tt = setInterval(rollDice, 300); 
 }
 
 var rollDice = function () {
@@ -35,11 +36,16 @@ var rollDice = function () {
 	var dice2 = Math.floor( (Math.random() * 6)+1);
 	diceSum = dice1 + dice2;
 	// console.log('dice 1: ${dice1}' + " dice 2: " +dice2)
-// replace the dice!
-document.getElementById("dice1").src = "img/dice"+dice1+".png";
-document.getElementById("dice2").src = "img/dice"+dice2+".png";
+	// replace the dice!
+	document.getElementById("dice1").src = "img/dice"+dice1+".png";
+	document.getElementById("dice2").src = "img/dice"+dice2+".png";
+	document.getElementById("dice-total").innerText = diceSum;
+	diceCounter++;
+	if (diceCounter >3) {
+		clearInterval(tt);
+	}
 }
-rollDice();
+diceTimer();
 
 
 var enableButtons = function () {
