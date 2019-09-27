@@ -27,8 +27,11 @@ var gameInitialize = function () {
 
 
 var enableButtons = function () {
-	var plus1 = document.querySelector('#plus1');
-	plus1.addEventListener('click', betClicked );
+	// iterate on all bet buttons and enable them...
+	const allBetButtons = document.querySelectorAll('.bet');
+	for (var i = 0; i <  allBetButtons.length; i++) {
+		allBetButtons[i].addEventListener('click', betClicked );
+	}
 };
 
 
