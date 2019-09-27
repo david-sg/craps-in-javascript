@@ -52,3 +52,30 @@ ul {
   text-align: left;
 }
 
+#roll {
+}
+
+.roll-output {
+    font-size: 30px;
+    color: black;
+}
+
+#current-bet {
+  max-width: 100px;
+
+}
+
+.border {
+ border: 2px solid color: #2c2d2e; 
+
+}
+
+#win-lose {
+  /*width: 150px;*/
+  color: white;
+} 
+
+.rowcenter {
+      display: flex;
+    justify-content: center;
+}
