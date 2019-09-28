@@ -151,7 +151,8 @@ var rollDice = function () {
 	diceCounter++;
 	if (diceCounter >3) {
 		clearInterval(tt);
-		document.getElementById("dice-total").style.color = "black";
+		// document.getElementById("dice-total").style.color = "black";
+		document.getElementById("dice-total").style.fontWeight = "900";
 		if (playerData.point === null) {
 			playerData.point = 0;}
 			else {
@@ -258,9 +259,11 @@ var betClicked = function (event) {
 
 var rollClicked = function (event) {
 	// disable click of roll to prevent double clicking....
-
 	var rollButton = document.querySelector('#roll-button');
 	rollButton.removeEventListener('click', rollClicked, false );
+	// go back to default color on dicesum (gray)
+	document.getElementById('dice-total').removeAttribute("style");
+
 
 	console.log ('roll clicked')
 	document.getElementById("win-lose").style.display = "none";
