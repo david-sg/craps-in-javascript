@@ -135,7 +135,7 @@ if (playerData.point >0) {
 
 
 var diceTimer =	function () {
-	tt = setInterval(rollDice, 300); 
+	tt = setInterval(rollDice, 100); 
 }
 
 var rollDice = function () {
@@ -149,7 +149,7 @@ var rollDice = function () {
 	document.getElementById("dice2").src = "img/dice"+dice2+".png";
 	document.getElementById("dice-total").innerText = diceSum;
 	diceCounter++;
-	if (diceCounter >3) {
+	if (diceCounter >10) {
 		clearInterval(tt);
 		// document.getElementById("dice-total").style.color = "black";
 		document.getElementById("dice-total").style.fontWeight = "900";
