@@ -36,6 +36,7 @@ var winner = function (){
 	document.getElementById("come-out-number").innerText = playerData.point;
 	console.log('winner')
 	// this isnt working?
+	document.getElementById("win-lose").innerHTML = '<h2>Winner, Winner, Chicken Dinner!\n <br>You Won $' + playerData.amountBet + "</h2>";
 	document.getElementById("win-lose").classList.remove('bg-warning');
 	document.getElementById("win-lose").classList.add('bg-sucess');
 	document.getElementById("win-lose").removeAttribute('style');
@@ -55,10 +56,11 @@ var loser = function (){
 	document.getElementById("display-come-out-number").style.visibility = "visible";
 	document.getElementById("come-out-number").innerText = playerData.point;
 
+	document.getElementById("win-lose").innerHTML = '<h2>You Lost $' + playerData.amountBet + "!</h2>";
 
+	document.getElementById("win-lose").removeAttribute('style');
 	document.getElementById("win-lose").classList.remove('bg-success');
 	document.getElementById("win-lose").classList.add('bg-warning');
-	document.getElementById("win-lose").removeAttribute('style');
 	playerData.gamesPlayed++;
 	playerData.losses = playerData.losses + playerData.amountBet;
 			showPlayerInfo();
