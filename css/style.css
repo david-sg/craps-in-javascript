@@ -110,3 +110,7 @@ ul {
 #come-out-number {
   width: 150px;
 }
+
+#bet-point-area {
+  min-height: 370px
+}
