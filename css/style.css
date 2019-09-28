@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   color: #57595c;
@@ -78,4 +84,21 @@ ul {
 .rowcenter {
       display: flex;
     justify-content: center;
+}
+
+.show-dice img {
+  width: 200%;
+}
+
+.name-input {
+  height: 50px;
+   font-size: : 20px;
+}
+
+#info-section {
+  height: 150px;
+}
+
+#come-out-number {
+  width: 150px;
 }
