@@ -32,11 +32,13 @@ var gameInitialize = function () {
 
 
 var winner = function (){
-		document.getElementById("display-come-out-number").style.visibility = "visible";
+	document.getElementById("display-come-out-number").style.visibility = "visible";
 	document.getElementById("come-out-number").innerText = playerData.point;
 	console.log('winner')
 	// this isnt working?
-	// document.getElementById("win-lose").style.display = "visible";
+	document.getElementById("win-lose").classList.remove('bg-warning');
+	document.getElementById("win-lose").classList.add('bg-sucess');
+	document.getElementById("win-lose").removeAttribute('style');
 	// end
 
 	playerData.bankroll = (playerData.amountBet * 2) + playerData.bankroll;
@@ -50,8 +52,13 @@ var winner = function (){
 
 var loser = function (){
 	console.log('loser')
-		document.getElementById("display-come-out-number").style.visibility = "visible";
+	document.getElementById("display-come-out-number").style.visibility = "visible";
 	document.getElementById("come-out-number").innerText = playerData.point;
+
+
+	document.getElementById("win-lose").classList.remove('bg-success');
+	document.getElementById("win-lose").classList.add('bg-warning');
+	document.getElementById("win-lose").removeAttribute('style');
 	playerData.gamesPlayed++;
 	playerData.losses = playerData.losses + playerData.amountBet;
 			showPlayerInfo();
