@@ -29,6 +29,17 @@ var gameInitialize = function () {
 
 
 
+var startNewRound = function () {
+	showPlayerInfo();
+	playerData.point = 0;
+	// allow betting again
+	//reset bet amount
+	enableButtons();
+	// clear betting area
+	playerData.amountBet = 0;
+	document.getElementById("current-bet").innerText = "$"+ playerData.amountBet;
+}
+
 
 
 var winner = function (){
@@ -45,10 +56,8 @@ var winner = function (){
 	playerData.bankroll = (playerData.amountBet * 2) + playerData.bankroll;
 	playerData.gamesPlayed++;
 	playerData.wins = 	playerData.wins + playerData.amountBet;
-		showPlayerInfo();
-	playerData.point = 0;
-
-
+	startNewRound()
+	return true;
 }
 
 var loser = function (){
@@ -63,8 +72,8 @@ var loser = function (){
 	document.getElementById("win-lose").classList.add('bg-warning');
 	playerData.gamesPlayed++;
 	playerData.losses = playerData.losses + playerData.amountBet;
-			showPlayerInfo();
-	playerData.point = 0;
+	startNewRound()
+	return true;
 }
 
 var newPoint = function (){
@@ -73,6 +82,7 @@ var newPoint = function (){
 	// show come out number
 	document.getElementById("display-come-out-number").style.visibility = "visible";
 	document.getElementById("come-out-number").innerText = playerData.point;
+	return true;
 }
 
 
