@@ -100,7 +100,7 @@ var gamePlay = function () {
 document.getElementById("display-come-out-number").style.visibility = "visible";
 if (playerData.point >0) {
 
-	if (diceSum === 7 || diceSum === 11) {
+	if (diceSum === 7) {
 		playerData.point = diceSum;
 		loser();
 		return true;
