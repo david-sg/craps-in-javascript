@@ -99,13 +99,13 @@ var betClicked = function (event) {
 	if (playerData.bankroll + betValue < 0 && betValue > 0) {
 	// show them a warning
 		document.getElementById("win-lose").style.display = "";
-		document.getElementById("win-lose").innerText = "You can not go below your bankroll!";
+		document.getElementById("win-lose").innerText = "You can not bet more than your bankroll!";
 		return true;
 	} 
 	// don't allow removal of bets to go negative
 	if (playerData.bankroll === 0 && betValue >0){
 		document.getElementById("win-lose").style.display = "";
-		document.getElementById("win-lose").innerText = "You can't go below your bankroll!";
+		document.getElementById("win-lose").innerText = "You can't bet more than your bankroll!";
 		return true;
 	} 
 
@@ -143,6 +143,7 @@ var showPlayerInfo = function () {
 document.getElementById('player-info').innerHTML = "<h3>Player Info</h3>";
 
 	var ulInput = document.createElement('ul');
+	ulInput.setAttribute('class', "ml-1");
 	var li = document.createElement("li");
 	li.textContent = "Name: " + playerData.name;
 	ulInput.appendChild(li);

@@ -25,7 +25,8 @@
         <div class="row rowcenter">
           <div class="col-12 border rounded" id="player-info">
             <h3>Player Info</h3>
-          <ul>
+          <ul class="ml-1">
+            <li>Name: Turing</li>
             <li>Bank: $1000</li>
             <li>Wins: 0 </li>
             <li>Losses: 0</li>
@@ -107,6 +108,27 @@
               </div>  
             </div>
           </div>
+<!-- rules section -->
+        <div class="row">
+            <div class="col rowcenter" id="rules-section" >
+              <div class="border rounded w-75 p-3" id="rules">
+              <h3>How to Play</h3>
+              <p class="text-left mt-0 mb-0">'Come Out Role' (Initial Role)</p>
+              <ul class="ml-1">
+                <li>Role a 7 or 11 you win 2x your bet!</li>
+                <li>Role a 2 or 12 you you lose</li>
+                <li>Role any other number that becomes 'The Point'</li>
+              </ul>
+                <p class="text-left mt-0 mb-0">'Point Role' (Subsequent Roles)</p>
+              <ul class="ml-1">
+                <li>Role 'The Point', you win 2x your bet!</li>
+                <li>Role a 7 or 11 you lose</li>
+                <li>Role any other number, role again</li>
+              </ul>
+              </div> 
+            </div>
+          </div>
+
 <!-- end middle column -->
       </div>
 
@@ -127,7 +149,7 @@
               <h2 id="dice-total">4</h2>
             </div>
             <div class="col" id="roll-area"> 
-        <button type="button" class="btn btn-primary btn-lg" id="roll-button">Roll Dice</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="roll-button">Roll Dice</button>
             </div>
         </div>
 <!-- end right column -->
