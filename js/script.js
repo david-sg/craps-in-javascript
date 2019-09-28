@@ -14,7 +14,7 @@ var playerData = {
 	losses: 0,
 	gamesPlayed: 0,
 	amountBet:0,
-	point: 0
+	point: null
 };
 var diceSum=null;
 var diceCounter = 0;
@@ -32,15 +32,22 @@ var gameInitialize = function () {
 
 
 var winner = function (){
+		document.getElementById("display-come-out-number").style.visibility = "visible";
+	document.getElementById("come-out-number").innerText = playerData.point;
 	console.log('winner')
 }
 
 var loser = function (){
 	console.log('loser')
+		document.getElementById("display-come-out-number").style.visibility = "visible";
+	document.getElementById("come-out-number").innerText = playerData.point;
 }
 
 var newPoint = function (){
 	console.log('New Point: ' + playerData.point)
+	// show come out number
+	document.getElementById("display-come-out-number").style.visibility = "visible";
+	document.getElementById("come-out-number").innerText = playerData.point;
 }
 
 
@@ -78,7 +85,12 @@ var rollDice = function () {
 	if (diceCounter >3) {
 		clearInterval(tt);
 		document.getElementById("dice-total").style.color = "black";
-	}
+		if (playerData.point === null) {
+			playerData.point = 0;}
+			else {
+		gamePlay();
+			}
+		}
 }
 diceTimer();
 
@@ -176,7 +188,6 @@ var rollClicked = function (event) {
 	diceCounter = 0;
 	document.getElementById("dice-total").removeAttribute('style');
 	diceTimer();
-	gamePlay();
 }
 
 var gameStart = function (playerName) {
