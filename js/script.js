@@ -13,7 +13,8 @@ var playerData = {
 	wins: 0,
 	losses: 0,
 	gamesPlayed: 0,
-	amountBet:0
+	amountBet:0,
+	point: 0
 };
 var diceSum=null;
 var diceCounter = 0;
@@ -25,6 +26,39 @@ var gameInitialize = function () {
 	document.getElementById("current-bet").innerText = "$"+ playerData.amountBet;
 	enableButtons()
 } 
+
+
+
+
+
+var winner = function (){
+	console.log('winner')
+}
+
+var loser = function (){
+	console.log('loser')
+}
+
+var newPoint = function (){
+	console.log('New Point: ' + playerData.point)
+}
+
+
+
+var gamePlay = function () {
+	if (playerData.point < 1) {
+		if (diceSum === 7 || diceSum === 11) {
+			winner();
+		} else if (diceSum === 2 || diceSum === 12) {
+			loser();
+		} else {
+			playerData.point = diceSum;
+			newPoint();
+		} 
+	}
+}
+
+
 
 var diceTimer =	function () {
 	tt = setInterval(rollDice, 300); 
@@ -43,6 +77,7 @@ var rollDice = function () {
 	diceCounter++;
 	if (diceCounter >3) {
 		clearInterval(tt);
+		document.getElementById("dice-total").style.color = "black";
 	}
 }
 diceTimer();
@@ -54,8 +89,15 @@ var enableButtons = function () {
 	for (var i = 0; i <  allBetButtons.length; i++) {
 		allBetButtons[i].addEventListener('click', betClicked );
 	}
+
+	// change color of roll button and enable roll button
+	document.getElementById("roll-button").classList.remove('btn-secondary');
+	document.getElementById("roll-button").classList.add('btn-primary');
+
 	var rollButton = document.querySelector('#roll-button');
 	rollButton.addEventListener('click', rollClicked );
+
+
 };
 
 
@@ -131,7 +173,10 @@ var betClicked = function (event) {
 
 var rollClicked = function (event) {
 	console.log ('roll clicked')
-	var location = event.target.id;
+	diceCounter = 0;
+	document.getElementById("dice-total").removeAttribute('style');
+	diceTimer();
+	gamePlay();
 }
 
 var gameStart = function (playerName) {
