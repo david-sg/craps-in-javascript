@@ -35,12 +35,25 @@ var winner = function (){
 		document.getElementById("display-come-out-number").style.visibility = "visible";
 	document.getElementById("come-out-number").innerText = playerData.point;
 	console.log('winner')
+	document.getElementById("win-lose").style.display = "visible";
+
+	playerData.bankroll = (playerData.amountBet * 2) + playerData.bankroll;
+	playerData.gamesPlayed++;
+	playerData.wins = 	playerData.wins + playerData.amountBet;
+		showPlayerInfo();
+	playerData.point = null;
+
+
 }
 
 var loser = function (){
 	console.log('loser')
 		document.getElementById("display-come-out-number").style.visibility = "visible";
 	document.getElementById("come-out-number").innerText = playerData.point;
+	playerData.gamesPlayed++;
+	playerData.losses = playerData.losses + playerData.amountBet;
+			showPlayerInfo();
+	playerData.point = null;
 }
 
 var newPoint = function (){
@@ -53,10 +66,13 @@ var newPoint = function (){
 
 
 var gamePlay = function () {
+
 	if (playerData.point < 1) {
 		if (diceSum === 7 || diceSum === 11) {
+			playerData.point = diceSum;
 			winner();
 		} else if (diceSum === 2 || diceSum === 12) {
+			playerData.point = diceSum;
 			loser();
 		} else {
 			playerData.point = diceSum;
