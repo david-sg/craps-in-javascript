@@ -231,6 +231,14 @@ var betClicked = function (event) {
 		return true;
 	} 
 	// don't allow removal of bets to go negative
+	if (playerData.bankroll - betValue < 0 && betValue > 0) {
+	// show them a warning
+		document.getElementById("win-lose").style.display = "";
+		document.getElementById("win-lose").innerText = "You can not bet more than your bankroll!";
+		return true;
+	} 
+
+
 	if (playerData.bankroll === 0 && betValue >0){
 		document.getElementById("win-lose").style.display = "";
 		document.getElementById("win-lose").innerText = "You can't bet more than your bankroll!";
