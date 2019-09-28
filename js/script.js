@@ -79,18 +79,40 @@ var newPoint = function (){
 
 var gamePlay = function () {
 
+// Next round of play
+
+if (playerData.point >0) {
+
+	if (diceSum === 7 || diceSum === 11) {
+		playerData.point = diceSum;
+		loser();
+		return true;
+	} else if (playerData.point === diceSum) {
+		playerData.point = diceSum;
+		winner();
+		return true;
+	} else {
+		return true;
+	}
+
+}
+// first round of play
 	if (playerData.point < 1) {
 		if (diceSum === 7 || diceSum === 11) {
 			playerData.point = diceSum;
 			winner();
-		} else if (diceSum === 2 || diceSum === 12) {
+			return true;
+		} else if (diceSum === 2 || diceSum === 3 ||diceSum === 12) {
 			playerData.point = diceSum;
 			loser();
+			return true;
 		} else {
 			playerData.point = diceSum;
 			newPoint();
+			return true;
 		} 
 	}
+	return true;
 }
 
 
@@ -219,6 +241,7 @@ var betClicked = function (event) {
 
 var rollClicked = function (event) {
 	console.log ('roll clicked')
+	document.getElementById("win-lose").style.display = "none";
 	diceCounter = 0;
 	document.getElementById("dice-total").removeAttribute('style');
 	diceTimer();
