@@ -49,7 +49,7 @@ var winner = function (){
 	// this isnt working?
 	document.getElementById("win-lose").innerHTML = '<h2>Winner, Winner, Chicken Dinner!\n <br>You Won $' + playerData.amountBet + "</h2>";
 	document.getElementById("win-lose").classList.remove('bg-warning');
-	document.getElementById("win-lose").classList.add('bg-sucess');
+	document.getElementById("win-lose").classList.add('bg-success');
 	document.getElementById("win-lose").removeAttribute('style');
 	// end
 
@@ -63,8 +63,10 @@ var winner = function (){
 var loser = function (){
 	console.log('loser')
 	document.getElementById("display-come-out-number").style.visibility = "visible";
-	document.getElementById("come-out-number").innerText = playerData.point;
-
+	//to check if the point is not yet established and we don't want to show in 2nd round 
+		if (playerData.point ===0) {
+		document.getElementById("come-out-number").innerText = playerData.point;
+		}
 	document.getElementById("win-lose").innerHTML = '<h2>You Lost $' + playerData.amountBet + "!</h2>";
 
 	document.getElementById("win-lose").removeAttribute('style');
@@ -90,7 +92,7 @@ var newPoint = function (){
 var gamePlay = function () {
 
 // Next round of play
-
+document.getElementById("display-come-out-number").style.visibility = "visible";
 if (playerData.point >0) {
 
 	if (diceSum === 7 || diceSum === 11) {
@@ -253,7 +255,12 @@ var rollClicked = function (event) {
 	console.log ('roll clicked')
 	document.getElementById("win-lose").style.display = "none";
 	diceCounter = 0;
-	document.getElementById("dice-total").removeAttribute('style');
+
+	// clear your point area (come out)
+	// if this is a new roll, clear
+	if (playerData.point===0) {
+	document.getElementById("display-come-out-number").style.visibility = "hidden";
+	}
 	diceTimer();
 }
 
