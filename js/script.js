@@ -22,6 +22,7 @@ var diceCounter = 0;
 var gameInitialize = function () {
 	// clear the input area
 	document.getElementById("name-input").style.display = "none";
+	document.getElementById("name-button").style.display = "none";
 	// clear the bets
 	document.getElementById("current-bet").innerText = "$"+ playerData.amountBet;
 	enableButtons()
@@ -319,12 +320,22 @@ var nameFunction = function (){
 
 var getName = function () {
 	// build the input and submit button...
-    var infoSection = document.getElementById('info-section');
+    var infoSection = document.getElementById('name-section');
     var nameInput = document.createElement('input');
 	nameInput.setAttribute('placeholder', "What's your name?");
+	nameInput.setAttribute('type', "text");
 	nameInput.setAttribute('class', "form-control name-input");
 	nameInput.setAttribute('id', "name-input");
 	infoSection.appendChild(nameInput);
+	
+	var nameButton = document.createElement('button');
+	nameButton.setAttribute('class', "btn  btn-primary btn-sm");
+	nameButton.setAttribute('type', "submit");
+	nameButton.setAttribute('value', "Submit");
+	nameButton.setAttribute('id', "name-button");
+	nameButton.innerText = 'Submit';
+	infoSection.appendChild(nameButton);
+
 	document.querySelector('#name-input').addEventListener('change', nameFunction); 
 }
 
