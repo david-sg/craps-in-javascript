@@ -92,6 +92,10 @@ var newPoint = function (){
 
 var gamePlay = function () {
 
+// re-enable dice roll
+	var rollButton = document.querySelector('#roll-button');
+	rollButton.addEventListener('click', rollClicked );	
+
 // Next round of play
 document.getElementById("display-come-out-number").style.visibility = "visible";
 if (playerData.point >0) {
@@ -253,6 +257,11 @@ var betClicked = function (event) {
 
 
 var rollClicked = function (event) {
+	// disable click of roll to prevent double clicking....
+
+	var rollButton = document.querySelector('#roll-button');
+	rollButton.removeEventListener('click', rollClicked, false );
+
 	console.log ('roll clicked')
 	document.getElementById("win-lose").style.display = "none";
 	diceCounter = 0;
