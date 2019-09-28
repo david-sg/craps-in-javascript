@@ -35,13 +35,15 @@ var winner = function (){
 		document.getElementById("display-come-out-number").style.visibility = "visible";
 	document.getElementById("come-out-number").innerText = playerData.point;
 	console.log('winner')
-	document.getElementById("win-lose").style.display = "visible";
+	// this isnt working?
+	// document.getElementById("win-lose").style.display = "visible";
+	// end
 
 	playerData.bankroll = (playerData.amountBet * 2) + playerData.bankroll;
 	playerData.gamesPlayed++;
 	playerData.wins = 	playerData.wins + playerData.amountBet;
 		showPlayerInfo();
-	playerData.point = null;
+	playerData.point = 0;
 
 
 }
@@ -53,10 +55,11 @@ var loser = function (){
 	playerData.gamesPlayed++;
 	playerData.losses = playerData.losses + playerData.amountBet;
 			showPlayerInfo();
-	playerData.point = null;
+	playerData.point = 0;
 }
 
 var newPoint = function (){
+	disableBets();
 	console.log('New Point: ' + playerData.point)
 	// show come out number
 	document.getElementById("display-come-out-number").style.visibility = "visible";
@@ -129,8 +132,14 @@ var enableButtons = function () {
 };
 
 
-var disableButtons = function () {
 
+var disableBets = function () {
+	console.log ('bets disabled');
+	const allBetButtons = document.querySelectorAll('.bet');
+	for (var i = 0; i <  allBetButtons.length; i++) {
+		// allBetButtons[i].removeEventListener('clicked', betClicked );
+		allBetButtons[i].removeEventListener('click', betClicked, false);
+	}
  	// document.getElementsByClassName('all-bets')[0].style.pointerEvents = 'none';
 
 }; 
