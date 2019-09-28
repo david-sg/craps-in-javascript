@@ -63,9 +63,9 @@ var winner = function (){
 
 var loser = function (){
 	console.log('loser')
-	document.getElementById("display-come-out-number").style.visibility = "visible";
-	//to check if the point is not yet established and we don't want to show in 2nd round 
-		if (playerData.point ===0) {
+		//to check if the point is not yet established and we don't want to show in 2nd round 
+	document.getElementById("display-come-out-number").style.visibility = "visible"
+		if (playerData.point === 0) {
 		document.getElementById("come-out-number").innerText = playerData.point;
 		}
 	document.getElementById("win-lose").innerHTML = '<h2>You Lost $' + playerData.amountBet + "!</h2>";
